@@ -23,25 +23,27 @@ Program to implement the linear regression using gradient descent.
 Developed by: GOPIKA K
 RegisterNumber:  212222040046
 */
-
+```
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 def linear_regression(X1,y,learning_rate=0.01,num_iters=1000):
-    X=np.c_[np.ones(len(X1)),X1]
-    theta=np.zeros(X.shape[1]).reshape(-1,1)
-    for _ in range(num_iters):
-        predictions=(X).dot(theta).reshape(-1,1)
-        errors=(predictions-y).reshape(-1,1)
-        theta-=learning_rate*(1/len(X1))*X.T.dot(errors)
-    return theta
-data=pd.read_csv('/content/ml data set 3.csv',header=None)
+  X=np.c_[np.ones(len(X1)),X1]
+  theta=np.zeros(X.shape[1]).reshape(-1,1)
+  for _ in range(num_iters):
+    predictions=(X).dot(theta).reshape(-1,1)
+    errors=(predictions-y).reshape(-1,1)
+    theta-=learning_rate*(1/len(X1))*X.T.dot(errors)
+  return theta
+
+data=pd.read_csv('/content/50_Startups.csv',header=None)
 X=(data.iloc[1:, :-2].values)
 X1=X.astype(float)
 scaler=StandardScaler()
 y=(data.iloc[1:,-1].values).reshape(-1,1)
 X1_Scaled=scaler.fit_transform(X1)
 Y1_Scaled=scaler.fit_transform(y)
+
 theta=linear_regression(X1_Scaled, Y1_Scaled)
 new_data=np.array([165349.2,136897.8,471784.1]).reshape(-1,1)
 new_Scaled=scaler.fit_transform(new_data)
@@ -52,10 +54,8 @@ print(f"Predicted value: {pre}")
 ```
 
 ## Output:
-![Screenshot 2024-08-30 190225](https://github.com/user-attachments/assets/febcc7a4-bdb3-478a-9c91-67bb862124c5)
-![Screenshot 2024-08-30 190142](https://github.com/user-attachments/assets/3d98c9f8-f171-46c1-84b2-55f19e8c49f7)
-
-
+![Screenshot 2024-09-27 140637](https://github.com/user-attachments/assets/379e76c0-d013-4929-9ca2-aea535038410)
+![Screenshot 2024-09-27 140645](https://github.com/user-attachments/assets/a723ec18-a6c5-4798-bf8b-92d66ef54d8b)
 
 ## Result:
 Thus the program to implement the linear regression using gradient descent is written and verified using python programming.
