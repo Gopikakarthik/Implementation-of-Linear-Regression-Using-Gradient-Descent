@@ -24,6 +24,7 @@ Developed by: GOPIKA K
 RegisterNumber:  212222040046
 */
 ```
+```
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
